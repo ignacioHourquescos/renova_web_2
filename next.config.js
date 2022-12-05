@@ -3,7 +3,7 @@ module.exports = {
 	images: {
 		domains: ["team.valvoline.com"],
 	},
-	experimental: {
+	compiler: {
 		// Enables the styled-components SWC transform
 		styledComponents: true,
 	},

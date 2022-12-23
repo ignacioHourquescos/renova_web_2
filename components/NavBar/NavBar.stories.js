@@ -1,14 +1,6 @@
 import React from "react";
 import NavBar from "./NavBar";
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-	title: "Components/NavBar",
-	component: NavBar,
-	// argTypes: {
-	// 	backgroundColor: { control: "color" },
-	// },
-};
-
 const products = {
 	name: "Turbolight 4100",
 	description: "Aceite semi sintetico",
@@ -21,6 +13,13 @@ const products = {
 	color: "red",
 	urlImage:
 		"https://http2.mlstatic.com/D_NQ_NP_711722-MLA43052442453_082020-O.webp",
+};
+export default {
+	title: "Components/NavBar",
+	component: NavBar,
+	// argTypes: {
+	// 	backgroundColor: { control: "color" },
+	// },
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args

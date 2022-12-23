@@ -1,34 +1,17 @@
 import React from "react";
 import PromotionalCard from "./PromotionalCard";
 
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-	title: "Components/PromotionalCard",
-	component: PromotionalCard,
-	argTypes: {
-		backgroundColor: { control: "color" },
-	},
-	parameters: {
-		mockData: [
-			{
-				url: "https://jsonplaceholder.typicode.com/todos/1",
-				method: "GET",
-				status: 200,
-				response: {
-					data: "Hello storybook-addon-mock!",
-					title: "algun titulo mockup",
-				},
-			},
-		],
-	},
-};
-
 const promotions = {
 	url: "https://lubricentrocarlitos.com.ar/wp-content/uploads/2017/08/elaion-f30.jpg",
 	title: "Promocion Octubre",
 	description: "Lubricantes especiales",
 	price: "300",
 	validity: "Enero 2023",
+};
+// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+export default {
+	title: "Components/PromotionalCard",
+	component: PromotionalCard,
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args

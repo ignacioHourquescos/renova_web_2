@@ -9,7 +9,7 @@ const promotions = {
 	validity: "Enero 2023",
 };
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
+export default story = {
 	title: "Components/PromotionalCard",
 	component: PromotionalCard,
 };

@@ -14,7 +14,7 @@ const products = {
 	urlImage:
 		"https://http2.mlstatic.com/D_NQ_NP_711722-MLA43052442453_082020-O.webp",
 };
-export default {
+export default story = {
 	title: "Components/NavBar",
 	component: NavBar,
 	// argTypes: {

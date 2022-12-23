@@ -17,11 +17,11 @@ const Inner = styled.div`
 	justify-content: space-between;
 	padding: 1rem;
 `;
+const Item = styled.div`
+	padding: 0.2rem;
+	background-color: white;
+`;
 
 Navigation.Item = ({ item }) => {
-	const Item = styled.div`
-		padding: 0.2rem;
-		background-color: white;
-	`;
 	return <Item>{item}</Item>;
 };

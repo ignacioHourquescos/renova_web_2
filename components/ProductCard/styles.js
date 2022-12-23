@@ -43,8 +43,52 @@ const Inner = styled.div`
 		margin: 2%;
 	}
 `;
-
 export default Card;
+
+const Image = styled.div`
+	background-image: url(${imageUrl});
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	height: 70%;
+	width: 100%;
+	position: relative;
+	@media ${device.mobileL} {
+		width: 80%;
+		margin: 0 10%;
+	}
+`;
+const Graduation = styled.div`
+	position: absolute;
+	right: 0.5rem;
+	font-size: 0.8rem;
+	top: 0.5rem;
+	color: white;
+	background-color: black;
+	font-weight: 400;
+	padding: 0.1rem;
+	display: flex;
+	@media ${device.mobileL} {
+		font-size: 0.6rem;
+		right: 0;
+	}
+`;
+const Presentation = styled.div`
+	position: absolute;
+	right: 0.5rem;
+	font-size: 0.8rem;
+	top: 1.7rem;
+	color: white;
+	background-color: black;
+	font-weight: 400;
+	padding: 0.1rem;
+	display: flex;
+	@media ${device.mobileL} {
+		font-size: 0.6rem;
+		right: 0;
+		top: 1.4rem;
+	}
+`;
 
 Card.Image = ({
 	children,
@@ -53,51 +97,6 @@ Card.Image = ({
 	presentation,
 	...restProps
 }) => {
-	const Image = styled.div`
-		background-image: url(${imageUrl});
-		background-size: contain;
-		background-repeat: no-repeat;
-		background-position: center;
-		height: 70%;
-		width: 100%;
-		position: relative;
-		@media ${device.mobileL} {
-			width: 80%;
-			margin: 0 10%;
-		}
-	`;
-	const Graduation = styled.div`
-		position: absolute;
-		right: 0.5rem;
-		font-size: 0.8rem;
-		top: 0.5rem;
-		color: white;
-		background-color: black;
-		font-weight: 400;
-		padding: 0.1rem;
-		display: flex;
-		@media ${device.mobileL} {
-			font-size: 0.6rem;
-			right: 0;
-		}
-	`;
-	const Presentation = styled.div`
-		position: absolute;
-		right: 0.5rem;
-		font-size: 0.8rem;
-		top: 1.7rem;
-		color: white;
-		background-color: black;
-		font-weight: 400;
-		padding: 0.1rem;
-		display: flex;
-		@media ${device.mobileL} {
-			font-size: 0.6rem;
-			right: 0;
-			top: 1.4rem;
-		}
-	`;
-
 	return (
 		<Image {...restProps}>
 			<Graduation>{graduation}</Graduation>
@@ -105,6 +104,60 @@ Card.Image = ({
 		</Image>
 	);
 };
+
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	justify-items: center;
+	align-content: center;
+	align-items: center;
+	background-color: black;
+	color: white;
+	height: 30%;
+`;
+const Name = styled.div`
+	font-size: 1.5rem;
+	background-color: #464646;
+	color: white;
+	width: 100%;
+	padding: 0.7rem;
+	text-align: center;
+	@media ${device.mobileL} {
+		font-size: 1rem;
+		padding: 0.3rem;
+	}
+`;
+const Type = styled.div`
+	font-size: 0.7rem;
+	background-color: grey;
+	padding: 0.1rem;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
+	margin-bottom: 0.2rem;
+	text-transform: uppercase;
+	text-align: center;
+
+	@media ${device.mobileL} {
+		font-size: 0.5rem;
+		padding: 0;
+	}
+`;
+const Price = styled.div`
+	right: 0.5rem;
+	bottom: 0.5rem;
+	font-size: 1.5rem;
+	text-shadow: #000 1px 0 10px;
+	font-weight: 800;
+	padding: 0.4rem 0;
+	margin: 0 1rem;
+
+	@media ${device.mobileL} {
+		font-size: 1.8rem;
+		padding: 0.2rem 0;
+		margin: 0 0.3rem;
+	}
+`;
 
 Card.Information = ({
 	children,
@@ -115,60 +168,6 @@ Card.Information = ({
 	color,
 	...restProps
 }) => {
-	const Container = styled.div`
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		justify-items: center;
-		align-content: center;
-		align-items: center;
-		background-color: black;
-		color: white;
-		height: 30%;
-	`;
-	const Name = styled.div`
-		font-size: 1.5rem;
-		background-color: #464646;
-		color: white;
-		width: 100%;
-		padding: 0.7rem;
-		text-align: center;
-		@media ${device.mobileL} {
-			font-size: 1rem;
-			padding: 0.3rem;
-		}
-	`;
-	const Type = styled.div`
-		font-size: 0.7rem;
-		background-color: grey;
-		padding: 0.1rem;
-		margin-left: 0.5rem;
-		margin-right: 0.5rem;
-		margin-bottom: 0.2rem;
-		text-transform: uppercase;
-		text-align: center;
-
-		@media ${device.mobileL} {
-			font-size: 0.5rem;
-			padding: 0;
-		}
-	`;
-	const Price = styled.div`
-		right: 0.5rem;
-		bottom: 0.5rem;
-		font-size: 1.5rem;
-		text-shadow: #000 1px 0 10px;
-		font-weight: 800;
-		padding: 0.4rem 0;
-		margin: 0 1rem;
-
-		@media ${device.mobileL} {
-			font-size: 1.8rem;
-			padding: 0.2rem 0;
-			margin: 0 0.3rem;
-		}
-	`;
-
 	return (
 		<Container {...restProps}>
 			<Name>{name}</Name>

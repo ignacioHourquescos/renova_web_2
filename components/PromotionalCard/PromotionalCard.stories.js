@@ -9,9 +9,25 @@ const promotions = {
 	validity: "Enero 2023",
 };
 // More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default story = {
+export default {
 	title: "Components/PromotionalCard",
 	component: PromotionalCard,
+	argTypes: {
+		backgroundColor: { control: "color" },
+	},
+	parameters: {
+		mockData: [
+			{
+				url: "https://jsonplaceholder.typicode.com/todos/1",
+				method: "GET",
+				status: 200,
+				response: {
+					data: "Hello storybook-addon-mock!",
+					title: "algun titulo mockup",
+				},
+			},
+		],
+	},
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args

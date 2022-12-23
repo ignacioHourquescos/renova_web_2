@@ -1,6 +1,12 @@
 import React from "react";
 import ProductCard from "./ProductCard";
 
+// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
+export default {
+	title: "Components/ProductCard",
+	component: ProductCard,
+};
+
 const products = {
 	name: "Turbolight 4100",
 	description: "Aceite semi sintetico",
@@ -13,11 +19,6 @@ const products = {
 	color: "red",
 	urlImage:
 		"https://http2.mlstatic.com/D_NQ_NP_711722-MLA43052442453_082020-O.webp",
-};
-// More on default export: https://storybook.js.org/docs/react/writing-stories/introduction#default-export
-export default {
-	title: "Components/ProductCard",
-	component: ProductCard,
 };
 
 // More on component templates: https://storybook.js.org/docs/react/writing-stories/introduction#using-args

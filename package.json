@@ -1,21 +1,36 @@
 {
-  "name": "web5",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "next": "13.0.6",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
-    "styled-components": "^5.3.6"
-  },
-  "devDependencies": {
-    "eslint": "8.28.0",
-    "eslint-config-next": "13.0.6"
-  }
+	"name": "web5",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"storybook": "start-storybook -p 6006 -s ./public",
+		"build-storybook": "build-storybook -s public"
+	},
+	"dependencies": {
+		"next": "13.0.6",
+		"react": "18.2.0",
+		"react-dom": "18.2.0",
+		"styled-components": "^5.3.6",
+		"styled-flex-component": "^3.0.5"
+	},
+	"devDependencies": {
+		"@babel/core": "^7.20.5",
+		"@storybook/addon-actions": "^6.5.14",
+		"@storybook/addon-essentials": "^6.5.14",
+		"@storybook/addon-interactions": "^6.5.14",
+		"@storybook/addon-links": "^6.5.14",
+		"@storybook/builder-webpack5": "^6.5.14",
+		"@storybook/manager-webpack5": "^6.5.14",
+		"@storybook/react": "^6.5.14",
+		"@storybook/testing-library": "^0.0.13",
+		"babel-loader": "^8.3.0",
+		"eslint": "8.28.0",
+		"eslint-config-next": "13.0.6",
+		"eslint-plugin-storybook": "^0.6.8",
+		"storybook-addon-mock": "^3.2.0"
+	}
 }

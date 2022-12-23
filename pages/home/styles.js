@@ -8,8 +8,6 @@ const Container = ({ children, image, url, ...restProps }) => (
 export default Container;
 
 const Inner = styled.div`
-	display: flex;
-	flex-direction: row;
 	width: 100%;
-	background-color: grey;
+	background-color: white;
 `;

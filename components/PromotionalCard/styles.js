@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import device from "../../utils/utils";
 
 const Card = ({ children, image, url, title, description, ...restProps }) => (
 	<Inner style={{ backgroundImage: `url(${url})` }} {...restProps}>
@@ -8,6 +9,24 @@ const Card = ({ children, image, url, title, description, ...restProps }) => (
 );
 
 export default Card;
+
+const Inner = styled.div`
+	border-radius: 5px;
+	box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1);
+	width: 46%;
+	height: 50vh;
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 2%;
+	position: relative;
+	background-color: white;
+	@media ${device.mobileL} {
+		width: 96%;
+		background-size: cover;
+		background-position: center;
+		margin-bottom: 10%;
+	}
+`;
 
 Card.Title = ({ title }) => {
 	return <Title>{title}</Title>;
@@ -46,18 +65,6 @@ Card.Conditions = ({ price, validity }) => {
 		</Conditions>
 	);
 };
-
-const Inner = styled.div`
-	border-radius: 5px;
-	box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1);
-	width: 46%;
-	height: 50vh;
-	background-size: cover;
-	background-repeat: no-repeat;
-	margin: 2%;
-	position: relative;
-	background-color: white;
-`;
 
 const Description = styled.div`
 	width: 100%;

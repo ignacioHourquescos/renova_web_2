@@ -1,15 +1,14 @@
-import styled from "styled-components";
 import Card from "./styles";
 
-const PromotionalCard = ({ dummyProduct }) => {
+const PromotionalCard = ({ promotions }) => {
 	return (
-		<Card url={dummyProduct.url}>
-			<Card.Title title={dummyProduct.title} />
+		<Card url={promotions?.url}>
+			<Card.Title title={promotions?.title} />
 			<Card.Ribbon>
-				<Card.Description description={dummyProduct.description} />
+				<Card.Description description={promotions?.description} />
 				<Card.Conditions
-					price={dummyProduct.price}
-					validity={dummyProduct.validity}
+					price={promotions?.price}
+					validity={promotions?.validity}
 				/>
 			</Card.Ribbon>
 		</Card>

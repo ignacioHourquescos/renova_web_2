@@ -43,7 +43,6 @@ const Inner = styled.div`
 		margin: 2%;
 	}
 `;
-export default Card;
 
 const Image = styled.div`
 	background-image: url(${imageUrl});
@@ -185,3 +184,5 @@ Card.Information = ({
 		</Container>
 	);
 };
+
+export default Card;

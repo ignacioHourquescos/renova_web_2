@@ -26,6 +26,10 @@ const Inner = styled.div`
 	}
 `;
 
+Glossary.Item = ({ children, ...restProps }) => {
+	return <Item {...restProps}>{children}</Item>;
+};
+
 Card.Title = ({ title }) => {
 	return <Title>{title}</Title>;
 };

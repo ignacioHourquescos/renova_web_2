@@ -7,8 +7,6 @@ const Navigation = ({ children, item, ...restProps }) => (
 	<Inner {...restProps}>{children}</Inner>
 );
 
-export default Navigation;
-
 const Inner = styled.div`
 	width: 100%;
 	height: 10%;
@@ -25,3 +23,5 @@ const Item = styled.div`
 Navigation.Item = ({ item }) => {
 	return <Item>{item}</Item>;
 };
+
+export default Navigation;

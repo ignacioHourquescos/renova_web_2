@@ -8,8 +8,6 @@ const Card = ({ children, image, url, title, description, ...restProps }) => (
 	</Inner>
 );
 
-export default Card;
-
 const Inner = styled.div`
 	border-radius: 5px;
 	box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1);
@@ -39,25 +37,25 @@ Card.Description = ({ description }) => {
 	return <Description>{description}</Description>;
 };
 
+const Conditions = styled.div`
+	display: flex;
+	flex-direction: column;
+	color: white;
+	font-size: 1rem;
+	color: orange;
+`;
+
+const Price = styled.div`
+	color: orange;
+	font-size: 2rem;
+	font-weight: bold;
+`;
+
+const Validity = styled.div`
+	color: yellow;
+`;
+
 Card.Conditions = ({ price, validity }) => {
-	const Conditions = styled.div`
-		display: flex;
-		flex-direction: column;
-		color: white;
-		font-size: 1rem;
-		color: orange;
-	`;
-
-	const Price = styled.div`
-		color: orange;
-		font-size: 2rem;
-		font-weight: bold;
-	`;
-
-	const Validity = styled.div`
-		color: yellow;
-	`;
-
 	return (
 		<Conditions>
 			<Price>${price} </Price>
@@ -91,3 +89,5 @@ const Title = styled.div`
 	font-size: 2rem;
 	color: white;
 `;
+
+export default Card;

@@ -1,4 +1,4 @@
-import Card from "./styles";
+import { Card, Unavailable } from "./styles";
 
 const ProductCard = ({ products }) => {
 	return (
@@ -14,6 +14,7 @@ const ProductCard = ({ products }) => {
 				type={products.type}
 				norms={products.norms}
 			/>
+			{products.active == "TRUE" ? <></> : <Unavailable />}
 		</Card>
 	);
 };

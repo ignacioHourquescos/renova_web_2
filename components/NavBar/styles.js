@@ -3,6 +3,7 @@ import styled from "styled-components";
 import device from "../../utils/utils";
 import Flex, { FlexItem } from "styled-flex-component";
 
+// eslint-disable-next-line react/display-name
 const Navigation = ({ children, item, ...restProps }) => (
 	<Inner {...restProps}>{children}</Inner>
 );

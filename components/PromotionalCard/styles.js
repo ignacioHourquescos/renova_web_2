@@ -8,6 +8,8 @@ const Card = ({ children, image, url, title, description, ...restProps }) => (
 	</Inner>
 );
 
+export default Card;
+
 const Inner = styled.div`
 	border-radius: 5px;
 	box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1);
@@ -25,10 +27,6 @@ const Inner = styled.div`
 		margin-bottom: 10%;
 	}
 `;
-
-Glossary.Item = ({ children, ...restProps }) => {
-	return <Item {...restProps}>{children}</Item>;
-};
 
 Card.Title = ({ title }) => {
 	return <Title>{title}</Title>;
@@ -93,5 +91,3 @@ const Title = styled.div`
 	font-size: 2rem;
 	color: white;
 `;
-
-export default Card;

@@ -9,10 +9,15 @@ const Container = ({ children, image, url, ...restProps }) => (
 export default Container;
 
 const Inner = styled.div`
-	width: 90%;
-	margin: 5%;
+	width: 75%;
+	margin: 12.5%;
 	display: flex;
 	flex-direction: row;
 	flex-wrap: wrap;
+	justify-content: space-between;
 	background-color: none;
+	@media ${device.mobileL} {
+		width: 90%;
+		margin: 5%;
+	}
 `;

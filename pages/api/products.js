@@ -24,17 +24,10 @@ export default function getProducts(req, res) {
 					norms: data.values[i][7],
 					price: data.values[i][8],
 					validity: data.values[i][9],
-					urlImage: data.values[i][10],
-					color: brandColorHandler(data.values[i][1]),
+					imageUrl: data.values[i][10],
 				});
 			}
 
 			res.send(JSON.stringify(array));
 		});
 }
-
-const brandColorHandler = (brand) => {
-	if (brand.toLowerCase() == "motul") {
-		return "#CF1A0E";
-	} else return "#000";
-};

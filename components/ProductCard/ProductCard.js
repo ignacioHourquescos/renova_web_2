@@ -1,20 +1,22 @@
-import { Card, Unavailable } from "./styles";
+import { Card } from "./components";
+import { brandColorHandler } from "../../utils/brandColorFunction";
 
-const ProductCard = ({ products }) => {
+const ProductCard = ({ products, type }) => {
 	return (
-		<Card color={products.color}>
-			<Card.Image
-				imageUrl={products.urlImage}
-				graduation={products.graduation}
-				presentation={products.presentation}
-			/>
-			<Card.Information
-				name={products.name}
-				price={products.price}
-				type={products.type}
-				norms={products.norms}
-			/>
-			{products.active == "TRUE" ? <></> : <Unavailable />}
+		<Card color={brandColorHandler(products.brand)}>
+			<>
+				<Card.Image
+					imageUrl={products.imageUrl}
+					graduation={products.graduation}
+					presentation={products.presentation}
+				/>
+				<Card.Information
+					name={products.name}
+					price={products.price}
+					type={products.type}
+					norms={products.norms}
+				/>
+			</>
 		</Card>
 	);
 };

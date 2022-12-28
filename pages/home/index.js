@@ -1,13 +1,15 @@
 import Promotion from "./Sections/Promotion/Promotion";
 import Product from "./Sections/Product/Product";
-import { Container, Header } from "./styles";
+import { Container } from "./styles";
+import { Header } from "../../components/Header/styles";
 import NavBar from "../../components/NavBar/NavBar";
 import { useEffect, useState } from "react";
 
 export default function Home() {
 	const [promotions, setPromotions] = useState();
-	const [products, setProducts] = useState();
-	const [brands, setBrands] = useState();
+	const [products, setProducts] = useState(null);
+	const [brands, setBrands] = useState(null);
+	const [filters, setFilters] = useState(null);
 
 	useEffect(() => {
 		fetch(`/api/promotions`)
@@ -28,17 +30,27 @@ export default function Home() {
 				setBrands(data);
 				console.log("ACA LAS MARCAS", data);
 			});
+		fetch(`/api/filters`)
+			.then((response) => response.json())
+			.then((data) => {
+				setFilters(data);
+				console.log("ACA LOS FILTROS", data);
+			});
 	}, []);
 
 	return (
 		<Container>
 			<NavBar></NavBar>
+
 			<Promotion promotions={promotions} />
+			<Header>Filtros</Header>
+			<Product type="filters" products={filters} />
 			{brands?.map((brand) => (
 				<>
 					<Header>{brand}</Header>
 					<Product
-						products={products.filter((product) => product.brand === brand)}
+						type="oil"
+						products={products?.filter((product) => product.brand === brand)}
 					/>
 				</>
 			))}

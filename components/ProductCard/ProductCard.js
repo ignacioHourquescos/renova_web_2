@@ -1,4 +1,4 @@
-import { Card } from "./components";
+import Card from "./components";
 import { brandColorHandler } from "../../utils/brandColorFunction";
 
 const ProductCard = ({ products, type }) => {

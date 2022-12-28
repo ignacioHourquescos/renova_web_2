@@ -1,4 +1,4 @@
-import { Card, Unavailable } from "./components/index";
+import Card from "./components/index";
 import { brandColorHandler } from "../../utils/brandColorFunction";
 
 const ProductCardII = ({ products, type }) => {

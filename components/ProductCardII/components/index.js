@@ -80,5 +80,4 @@ Card.Information = ({
 	);
 };
 
-Card.displayName = "Card";
 export default Card;

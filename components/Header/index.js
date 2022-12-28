@@ -4,3 +4,5 @@ import { Inner } from "./styles";
 const Header = ({ children }) => {
 	return <Header>{children}</Header>;
 };
+
+export default Header;

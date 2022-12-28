@@ -33,7 +33,7 @@ const Card = ({
 		</Inner>
 	);
 };
-
+Card.displayName = "Card";
 export default Card;
 
 Card.Image = ({

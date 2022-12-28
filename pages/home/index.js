@@ -1,7 +1,7 @@
 // import Promotion from "./Sections/Promotion/Promotion";
 import Product from "./Sections/Product/Product";
 import { Container } from "./styles";
-import Header from "../../components/Header/styles";
+import Header from "../../components/Header";
 
 import { useEffect, useState } from "react";
 

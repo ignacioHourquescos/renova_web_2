@@ -80,6 +80,4 @@ Card.Information = ({
 	);
 };
 
-export const Unavailable = () => {
-	return <InnerUnavailable>SIN STOCK</InnerUnavailable>;
-};
+export default Card;

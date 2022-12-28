@@ -75,3 +75,5 @@ Card.Information = ({
 		</Container>
 	);
 };
+
+export default Card;

@@ -1,7 +1,7 @@
-// import Promotion from "./Sections/Promotion/Promotion";
+import Promotion from "./Sections/Promotion/Promotion";
 import Product from "./Sections/Product/Product";
 import { Container } from "./styles";
-import Header from "../../components/Header";
+import Header from "../../components/Header/Header";
 
 import { useEffect, useState } from "react";
 
@@ -40,7 +40,7 @@ export default function Home() {
 
 	return (
 		<Container>
-			{/* <Promotion promotions={promotions} /> */}
+			<Promotion promotions={promotions} />
 			<Header>Filtros</Header>
 			<Product type="filters" products={filters} />
 			{brands?.map((brand) => (

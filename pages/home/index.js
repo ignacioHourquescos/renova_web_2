@@ -1,6 +1,6 @@
 import Promotion from "./Sections/Promotion/Promotion";
 import Product from "./Sections/Product/Product";
-import { Container } from "./styles";
+import Container from "./styles";
 import Header from "../../components/Header/Header";
 
 import { useEffect, useState } from "react";

@@ -11,6 +11,7 @@ import {
 	Container,
 } from "./styles";
 
+// eslint-disable-next-line react/display-name
 const Card = ({
 	children,
 	image,

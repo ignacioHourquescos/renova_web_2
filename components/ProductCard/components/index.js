@@ -11,7 +11,7 @@ import {
 	Container,
 } from "./styles";
 
-export const Card = ({
+const Card = ({
 	children,
 	image,
 	url,
@@ -33,6 +33,8 @@ export const Card = ({
 		</Inner>
 	);
 };
+
+export default Card;
 
 Card.Image = ({
 	children,
@@ -75,5 +77,3 @@ Card.Information = ({
 		</Container>
 	);
 };
-
-export default Card;

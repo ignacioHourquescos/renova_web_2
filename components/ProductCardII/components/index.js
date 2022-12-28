@@ -37,9 +37,6 @@ const Card = ({
 	);
 };
 
-Card.displayName = "Card";
-export default Card;
-
 Card.Image = ({
 	children,
 	imageUrl,
@@ -82,3 +79,6 @@ Card.Information = ({
 		</Container>
 	);
 };
+
+Card.displayName = "Card";
+export default Card;

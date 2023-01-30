@@ -15,9 +15,7 @@ export default function getBrands(req, res) {
 			for (var i = 1; i < data.values.length; i++) {
 				brandsArray.push(data.values[i][1]);
 			}
-			console.log(brandsArray);
 			const brandsArrayFiltered = brandsArray.filter(onlyUnique);
-			console.log(`UNIQUE BRANDS`, brandsArrayFiltered);
 			res.send(JSON.stringify(brandsArrayFiltered));
 		});
 }

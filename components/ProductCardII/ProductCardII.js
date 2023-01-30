@@ -14,7 +14,7 @@ const ProductCardII = ({ products, type }) => {
 					/>
 					<Card.Information
 						name={products.name}
-						price={products.price}
+						price={products.price.toFixed()}
 						type={products.type}
 						code={products.code}
 					/>

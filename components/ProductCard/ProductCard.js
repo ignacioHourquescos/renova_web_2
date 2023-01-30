@@ -1,23 +1,35 @@
-import Card from "./components";
-import { brandColorHandler } from "../../utils/brandColorFunction";
+import { Styled } from "./styles";
+import Flex, { FlexItem } from "styled-flex-component";
+import { useEffect, useState } from "react";
+import { get_products } from "../../pages/api/renovapp/prices";
 
-const ProductCard = ({ products, type }) => {
+const ProductCard = ({ products }) => {
+	const [prices, setPrices] = useState();
+
 	return (
-		<Card color={brandColorHandler(products.brand)}>
-			<>
-				<Card.Image
-					imageUrl={products.imageUrl}
-					graduation={products.graduation}
-					presentation={products.presentation}
-				/>
-				<Card.Information
-					name={products.name}
-					price={products.price}
-					type={products.type}
-					norms={products.norms}
-				/>
-			</>
-		</Card>
+		<>
+			<Styled.Inner
+				brand={products.brand}
+				style={{
+					backgroundImage: `url(${products.url})`,
+					borderColor: `${products.color}`,
+				}}
+			>
+				<Styled.Image content={products.imageUrl} />
+				<Styled.Graduation content={products.graduation} />
+				<Styled.Presentation content={products.presentation} />
+				<Styled.Container>
+					<Styled.Name content={products.name} data-testid="name" />
+					<Flex row center full>
+						<Flex column left justifyCenter full>
+							<Styled.Type content={products.type} data-testid="type" />
+							<Styled.Type content={products.norms} data-testid="norms" />
+						</Flex>
+						<Styled.Price content={products.price.toFixed()} />
+					</Flex>
+				</Styled.Container>
+			</Styled.Inner>
+		</>
 	);
 };
 

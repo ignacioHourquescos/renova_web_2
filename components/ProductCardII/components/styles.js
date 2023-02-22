@@ -33,9 +33,9 @@ export const Image = styled.div.attrs((props) => ({
 	background-repeat: no-repeat;
 	background-position: center;
 	height: 70%;
-	width: 100%;
-	${"" /* position: relative; */}
-	@media ${device.mobileL} {
+	width: 80%;
+	margin: 0 10%;
+	${"" /* position: relative; */} @media ${device.mobileL} {
 		width: 80%;
 		margin: 0 10%;
 	}
@@ -83,7 +83,7 @@ export const Container = styled.div`
 	color: white;
 	height: 30%;
 `;
-export const Name = styled.div`
+export const Title = styled.div`
 	font-size: 1.3rem;
 	background-color: #464646;
 	color: white;

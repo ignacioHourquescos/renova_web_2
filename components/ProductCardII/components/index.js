@@ -5,7 +5,7 @@ import {
 	Brand,
 	Image,
 	InnerUnavailable,
-	Name,
+	Title,
 	Presentation,
 	Price,
 	Type,
@@ -48,14 +48,14 @@ Card.Image = ({
 	return (
 		<Image imageUrl={imageUrl} {...restProps}>
 			<Brand>{brand}</Brand>
-			<Presentation>{type}</Presentation>
+			{type ? <Presentation>{type}</Presentation> : ""}
 		</Image>
 	);
 };
 
 Card.Information = ({
 	children,
-	name,
+	title,
 	price,
 	type,
 	code,
@@ -64,7 +64,7 @@ Card.Information = ({
 }) => {
 	return (
 		<Container {...restProps}>
-			<Name>{name}</Name>
+			<Title>{title}</Title>
 			<Flex row center full>
 				<Flex column left justifyCenter full>
 					{/* <FlexItem order="2">

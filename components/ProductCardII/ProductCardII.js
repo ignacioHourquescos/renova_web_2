@@ -4,7 +4,7 @@ import { brandColorHandler } from "../../utils/brandColorFunction";
 const ProductCardII = ({ products, type }) => {
 	return (
 		<>
-			{products.active == "TRUE" ? (
+			{products.active == true ? (
 				<Card color={brandColorHandler(products.brand)}>
 					<Card.Image
 						imageUrl={products.imageUrl}
@@ -13,14 +13,14 @@ const ProductCardII = ({ products, type }) => {
 						brand={products.brand.toUpperCase()}
 					/>
 					<Card.Information
-						name={products.name}
+						title={products.title}
 						price={products.price.toFixed()}
 						type={products.type}
-						code={products.code}
+						code={products.id}
 					/>
 				</Card>
 			) : (
-				<></>
+				<>prodcuto no activo</>
 			)}
 		</>
 	);

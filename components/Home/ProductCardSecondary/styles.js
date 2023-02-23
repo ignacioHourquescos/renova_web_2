@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Flex, { FlexItem } from "styled-flex-component";
-import device from "../../utils/utils";
+import device from "../../../utils/utils";
 
 export const Styled = {
 	Inner: styled.div`

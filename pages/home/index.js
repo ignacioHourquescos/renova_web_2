@@ -1,6 +1,5 @@
-import Promotion from "./Sections/Promotion/Promotion";
-import Product from "./Sections/Product/Product";
-import Container from "./styles";
+// import Product from "./Sections/Product/Product";
+import { Styled } from "./styles";
 import Header from "../../components/Header/Header";
 const { Client } = require("@notionhq/client");
 
@@ -12,13 +11,14 @@ import { useEffect, useState } from "react";
 import { get_prices } from "../api/renovapp/prices";
 import { get_products_filters } from "../api/sheets/product_filters";
 import { get_products_non_filters } from "../api/sheets/products_non_filters";
+import Promotion from "../../components/Home/Promotion/Promotion";
+import ProductCard from "../../components/Home/ProductCard/ProductCard";
 
 export default function Home({ items }) {
 	const [promotions, setPromotions] = useState();
-	const [products, setProducts] = useState(null);
+	const [products, setProducts] = useState();
 	const [brands, setBrands] = useState(null);
-	const [filters, setFilters] = useState(null);
-	const [prices, setPrices] = useState();
+	const [filters, setFilters] = useState();
 
 	let notionArray = [];
 	items.forEach((item) => {
@@ -26,9 +26,11 @@ export default function Home({ items }) {
 			internalNotionCode: item.id,
 			id: item.properties.codigo.title[0].plain_text,
 			title: item.properties.titulo.rich_text[0].plain_text,
-			active: item.properties.activo.checkbox,
+			// active: item.properties.activo.checkbox,
+			active: true,
 			discount: item.properties.descuento.number,
 			imageUrl: item.properties.imagen.files[0]?.file.url,
+			brand: "dummy brand",
 			//task: books[i].properties.Descripcion.id,
 		});
 	});
@@ -51,65 +53,43 @@ export default function Home({ items }) {
         brand:"FRAM"
 			}));
 			//prettier-ignore
-			const consolidatedProductPrice_non_filter = productPriceArray[1].map(
-				(element) => ({
-					...element,
-					price:productPriceArray[2].filter((element2) => element2.id == element.code)[0]?.pr * 1.21,
-				})
-			);
+			// const consolidatedProductPrice_non_filter = productPriceArray[1].map(
+			// 	(element) => ({
+			// 		...element,
+			// 		price:productPriceArray[2].filter((element2) => element2.id == element.code)[0]?.pr * 1.21,
+			// 	})
+			// );
 			setFilters(consolidatedProductPrice);
-			setProducts(consolidatedProductPrice_non_filter);
+			// setProducts(consolidatedProductPrice_non_filter);
 		};
 
 		fetch_all();
 	}, []);
 
-	// prettier-ignore
 	useEffect(() => {
-  
-		// fetch(`/api/sheets/promotions`)
-		// 	.then((response) => response.json())
-		// 	.then((data) => {
-		// 		setPromotions(data);
-		// 	});
-		// console.log("🚀 ~ file: index.js:31 ~ .then ~ setPromotions", promotions);
+		fetch(`/api/sheets/promotions`)
+			.then((response) => response.json())
+			.then((data) => {
+				setPromotions(data);
+			});
 
-		// fetch(`/api/sheets/products`)
-		// 	.then((response) => response.json())
-		// 	.then((data) => {setProducts(data);
-		// 		const fetch_products = async () => {
-		// 			const res = await get_products();
-		// 			setPrices(res);
-		// 		};
-		// 		fetch_products();
-		// 	})
-    //   .then(()=>{
-    //     // const priceFromERP = prices.find((element) => element.id == priceFromERP.code);
-    //     // console.log("🚀 ~ file: index.js:39 ~ .then ~ priceFromERP",priceFromERP);
-    //     console.log("🚀 ~ file: index.js:35 ~ products", products);
-    //     console.log("🚀 ~ file: index.js:21 ~ rpices",prices);
-    //   })
-
-		 fetch(`/api/sheets/brands`)
-		 	.then((response) => response.json())
-		 	.then((data) => {
-		 		setBrands(data);
-		 	});
-		// console.log("🚀 ~ file: index.js:49 ~ .then ~ setBrands", brands);
-		// fetch(`/api/sheets/filters`)
-		// 	.then((response) => response.json())
-		// 	.then((data) => {
-		// 		setFilters(data);
-		// 	});
-		// console.log("🚀 ~ file: index.js:55 ~ .then ~ setFilters", filters);
+		fetch(`/api/sheets/brands`)
+			.then((response) => response.json())
+			.then((data) => {
+				setBrands(data);
+			});
 	}, []);
 
 	return (
-		<Container>
-			{/* <Promotion promotions={promotions} /> */}
+		<Styled.Container>
+			{/* {promotions?.map((element, idx) => (
+				<Promotion key={idx} promotions={element} />
+			))} */}
 			<Header>Filtros</Header>
-
-			<Product type="filters" products={filters} />
+			{filters?.map((element, idx) => (
+				<ProductCard key={idx} products={element} />
+			))}
+			{/* <ProductCardII products={filters} /> */}
 			{/* {brands?.map((brand) => (
 				<>
 					<Header>{brand}</Header>
@@ -119,29 +99,20 @@ export default function Home({ items }) {
 					/>
 				</>
 			))} */}
-		</Container>
+		</Styled.Container>
 	);
 }
 
+// prettier-ignore
 export async function getStaticProps() {
-	const notion = new Client({
-		auth: "secret_4yG0RqGh5tXyLuKm3gRMhyvRf1ygu6sNRINVQliEofc",
-	});
+	const notion = new Client({auth: "secret_4yG0RqGh5tXyLuKm3gRMhyvRf1ygu6sNRINVQliEofc"});
 	const response = await notion.databases.query({
 		database_id: "2bca360b3aae4517abae717845adbc9a",
-		sorts: [
-			{
-				timestamp: "created_time",
-				direction: "ascending",
-			},
-		],
+		sorts: [{timestamp: "created_time",direction: "ascending",}],
 	});
-	console.log("get static props", response);
 
 	return {
-		props: {
-			items: response.results,
-		},
+		props: {items: response.results},
 		revalidate: 1,
 	};
 }

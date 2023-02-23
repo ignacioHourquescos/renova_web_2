@@ -1,3 +1,11 @@
+// import Container from "./styles";
+
+// export default function Promotion({ promotions }) {
+// 	return (
+// 				<PromotionalCard key={idx} promotions={element} />
+// 	);
+// }
+
 import { Styled } from "./styles";
 
 const PromotionalCard = ({ promotions }) => {

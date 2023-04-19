@@ -15,17 +15,12 @@ const ProductCard = ({ products }) => {
 					)}
 				</Styled.Image>
 				<Styled.Information>
-					<Styled.Title>{products.title}</Styled.Title>;
-					<Flex row center full></Flex>
-					<Flex column left justifyCenter full>
-						{/* <FlexItem order="2">
-						<Type>{type}</Type>
-					</FlexItem> */}
-						<FlexItem order="1">
-							<Styled.Type>{products.code}</Styled.Type>
-						</FlexItem>
-					</Flex>
-					<Styled.Price>${products.price}</Styled.Price>
+					<Styled.Title>{products.title}</Styled.Title>
+					<Styled.DetailContainer>
+						<Styled.Code>{products.id}</Styled.Code>
+
+						<Styled.Price>${products.price.toFixed()}</Styled.Price>
+					</Styled.DetailContainer>
 				</Styled.Information>
 			</Styled.Inner>
 		</>

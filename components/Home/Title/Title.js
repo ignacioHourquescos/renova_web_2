@@ -1,8 +1,8 @@
 import React from "react";
 import { Inner } from "./styles";
 
-const Header = ({ children }) => {
+const Title = ({ children }) => {
 	return <Inner>{children}</Inner>;
 };
 
-export default Header;
+export default Title;

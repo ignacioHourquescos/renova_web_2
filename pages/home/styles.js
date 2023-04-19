@@ -12,8 +12,9 @@ export const Styled = {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		justify-content: center;
+		justify-content: flex-start;
 		background-color: none;
+
 		@media ${device.mobileL} {
 			width: 90%;
 			margin: 5%;

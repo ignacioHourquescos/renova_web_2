@@ -5,7 +5,7 @@ export const Styled = {
 	Inner: styled.div`
 		box-shadow: 0 0 7px 0px rgba(0, 0, 0, 0.1);
 		width: 18%;
-		height: 40vh;
+		height: 35vh;
 		margin: 0%;
 		border-left: 10px solid;
 		box-sizing: border-box;
@@ -15,13 +15,13 @@ export const Styled = {
 		position: relative;
 		margin: 1%;
 		@media ${device.mobileL} {
-			width: 46%;
-			height: 30vh;
+			width: 32%;
+			height: 22vh;
 			background-size: cover;
 			background-position: center;
 			margin-bottom: 5%;
 			border-left: 5px solid;
-			margin: 2%;
+			margin: 0.5%;
 		}
 	`,
 	Image: styled.div.attrs((props) => ({
@@ -35,7 +35,7 @@ export const Styled = {
 		height: 70%;
 		width: 80%;
 		margin: 0 10%;
-		${"" /* position: relative; */} @media ${device.mobileL} {
+		@media ${device.mobileL} {
 			width: 80%;
 			margin: 0 10%;
 		}
@@ -74,38 +74,50 @@ export const Styled = {
 	Information: styled.div`
 		display: flex;
 		flex-direction: column;
-		justify-content: center;
+		justify-content: space-between;
 		justify-items: center;
 		align-content: center;
-		align-items: center;
+		align-items: flex-start;
 		background-color: black;
 		color: white;
 		height: 30%;
 	`,
+	DetailContainer: styled.div`
+		display: flex;
+		width: 100%;
+		flex-direction: row;
+		justify-content: space-between;
+		justify-items: space-between;
+		align-content: center;
+		align-items: flex-start;
+		padding: 0.3rem;
+	`,
 	Title: styled.div`
-		font-size: 1.3rem;
+		font-size: 1rem;
 		background-color: #464646;
 		color: white;
 		width: 100%;
-		padding: 0.7rem;
+		padding: 0.1rem;
 		text-align: center;
 		@media ${device.mobileL} {
-			font-size: 1rem;
+			font-size: 0.8rem;
 			padding: 0.3rem;
 		}
 	`,
-	Type: styled.div`
+	Code: styled.div`
 		font-size: 1rem;
-		background-color: grey;
-		padding: 0.2rem;
+		color: white;
+		font-weight: bold;
+
 		margin-left: 0.5rem;
 		margin-right: 0.5rem;
 		margin-bottom: 0.2rem;
 		text-transform: uppercase;
 		text-align: center;
-
+		font-weight: 200;
 		@media ${device.mobileL} {
-			font-size: 0.5rem;
+			font-size: 0.8rem;
+
 			padding: 0;
 		}
 	`,
@@ -115,13 +127,9 @@ export const Styled = {
 		font-size: 1.5rem;
 		text-shadow: #000 1px 0 10px;
 		font-weight: 800;
-		padding: 0.4rem 0;
-		margin: 0 1rem;
 
 		@media ${device.mobileL} {
-			font-size: 1.4rem;
-			padding: 0.2rem 0;
-			margin: 0 0.3rem;
+			font-size: 01rem;
 		}
 	`,
 	InnerUnavailable: styled.div`

@@ -1,13 +1,16 @@
 // import Product from "./Sections/Product/Product";
+
 const { Client } = require("@notionhq/client");
 import { useEffect, useState } from "react";
 import { get_prices } from "../api/renovapp/prices";
 import { get_products_filters } from "../api/sheets/product_filters";
 import { get_products_non_filters } from "../api/sheets/products_non_filters";
 import { Ofertas as OfertasDetail } from "../../components/ofertas/index";
+import { Alert, Space, Spin } from "antd";
 
 export default function Home({ items }) {
   const [products, setProducts] = useState();
+  const [loading, setLoading] = useState(true);
   // const [brands, setBrands] = useState(null);
   const [filters, setFilters] = useState();
   const brands = ["FRAM", "MOTUL", "ORIGINALES"];
@@ -44,13 +47,22 @@ export default function Home({ items }) {
           (1 - element.discount),
       }));
       setProducts(consolidatedProductPrice);
+      setLoading(false);
       // setProducts(consolidatedProductPrice_non_filter);
     };
 
     fetch_all();
   }, []);
 
-  return <OfertasDetail brands={brands} products={products} />;
+  return (
+    <>
+      {loading ? (
+        <Spin />
+      ) : (
+        <OfertasDetail brands={brands} products={products} />
+      )}
+    </>
+  );
 }
 
 // prettier-ignore

@@ -1,7 +1,7 @@
 import React from "react";
 import { Styled } from "./styles";
-import Title from "./title/Title";
-import ProductCard from "./product-card/ProductCard";
+import ProductCard from "./components/product-card/ProductCard";
+import Title from "./components/title/Title";
 
 export const Ofertas = ({ brands, products }) => {
   return (

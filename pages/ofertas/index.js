@@ -1,12 +1,10 @@
 // import Product from "./Sections/Product/Product";
-import { Styled } from "./styles";
 const { Client } = require("@notionhq/client");
 import { useEffect, useState } from "react";
 import { get_prices } from "../api/renovapp/prices";
 import { get_products_filters } from "../api/sheets/product_filters";
 import { get_products_non_filters } from "../api/sheets/products_non_filters";
-import ProductCard from "../../components/ofertas/ProductCard/ProductCard";
-import Title from "../../components/ofertas/Title/Title";
+import { Ofertas as OfertasDetail } from "../../components/ofertas/index";
 
 export default function Home({ items }) {
   const [products, setProducts] = useState();
@@ -52,20 +50,7 @@ export default function Home({ items }) {
     fetch_all();
   }, []);
 
-  return (
-    <Styled.Container>
-      {brands.map((brandElement, idx) => (
-        <>
-          <Title key={idx}>{brandElement}</Title>
-          {products
-            ?.filter((element) => element.brand == brandElement)
-            .map((element, idx) => (
-              <ProductCard key={idx} products={element} />
-            ))}
-        </>
-      ))}
-    </Styled.Container>
-  );
+  return <OfertasDetail brands={brands} products={products} />;
 }
 
 // prettier-ignore

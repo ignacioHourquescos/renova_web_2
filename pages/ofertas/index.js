@@ -8,7 +8,7 @@ import { get_prices } from "../api/renovapp/prices";
 import { get_products_filters } from "../api/sheets/product_filters";
 import { get_products_non_filters } from "../api/sheets/products_non_filters";
 import ProductCard from "../../components/ofertas/ProductCard/ProductCard";
-import Title from "../../components/Home/Title/Title";
+import Title from "../../components/ofertas/Title/Title";
 
 export default function Home({ items }) {
   const [products, setProducts] = useState();

@@ -13,7 +13,7 @@ export default function Home({ items }) {
   const [loading, setLoading] = useState(true);
   // const [brands, setBrands] = useState(null);
   const [filters, setFilters] = useState();
-  const brands = ["FRAM", "MOTUL", "ORIGINALES"];
+  const brands = ["FRAM", "MOTUL", "ORIGINALES", "LOCX", "TOTAL", "PUMA", "VALVOLINE", "SHELL", "LOCX", "VARIOS", "OFERTAS FILTROS"];
   let notionArray = [];
   items.forEach((item) => {
     notionArray.push({

@@ -5,9 +5,10 @@ export const Styled = {
   Inner: styled.div`
     box-shadow: 0 0 7px 0px rgba(0, 0, 0, 0.1);
     width: 18%;
-    height: 35vh;
+    height: 40vh;
     margin: 0%;
     border-left: 10px solid;
+    border-color: ${(props) => props.borderColor});
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
@@ -16,7 +17,7 @@ export const Styled = {
     margin: 1%;
     @media ${device.mobileL} {
       width: 32%;
-      height: 22vh;
+      height: 25vh;
       background-size: cover;
       background-position: center;
       margin-bottom: 5%;
@@ -85,11 +86,11 @@ export const Styled = {
   DetailContainer: styled.div`
     display: flex;
     width: 100%;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: space-between;
     justify-items: space-between;
     align-content: center;
-    align-items: flex-start;
+    align-items: center;
     padding: 0.3rem;
   `,
   Title: styled.div`
@@ -99,8 +100,9 @@ export const Styled = {
     width: 100%;
     padding: 0.1rem;
     text-align: center;
+    height: 40%;
     @media ${device.mobileL} {
-      font-size: 0.8rem;
+      font-size: 0.7rem;
       padding: 0.3rem;
     }
   `,
@@ -116,8 +118,8 @@ export const Styled = {
     text-align: center;
     font-weight: 200;
     @media ${device.mobileL} {
-      font-size: 0.8rem;
-
+      font-size: 0.6rem;
+      margin: 0;
       padding: 0;
     }
   `,
@@ -127,6 +129,7 @@ export const Styled = {
     font-size: 1.5rem;
     text-shadow: #000 1px 0 10px;
     font-weight: 800;
+    color: orange;
 
     @media ${device.mobileL} {
       font-size: 01rem;

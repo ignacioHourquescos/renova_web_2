@@ -13,16 +13,28 @@ export default function Home({ items }) {
   const [loading, setLoading] = useState(true);
   // const [brands, setBrands] = useState(null);
   const [filters, setFilters] = useState();
-  const brands = ["FRAM", "MOTUL", "ORIGINALES", "LOCX", "TOTAL", "PUMA", "VALVOLINE", "SHELL", "LOCX", "VARIOS", "OFERTAS FILTROS"];
+  const brands = [
+    "FRAM",
+    "MOTUL",
+    "ORIGINALES",
+    "LOCX",
+    "TOTAL",
+    "PUMA",
+    "VALVOLINE",
+    "SHELL",
+    "LOCX",
+    "VARIOS",
+    "OFERTAS FILTROS",
+  ];
   let notionArray = [];
   items.forEach((item) => {
     notionArray.push({
-      internalNotionCode: item.id,
-      id: item.properties.codigo.title[0].plain_text,
-      title: item.properties.titulo.rich_text[0].plain_text,
-      brand: item.properties.marca.rich_text[0].plain_text,
-      active: item.properties.activo.checkbox,
-      discount: item.properties.descuento.number,
+      internalNotionCode: item?.id,
+      id: item.properties.codigo.title[0]?.plain_text,
+      title: item.properties.titulo.rich_text[0]?.plain_text,
+      brand: item.properties.marca.rich_text[0]?.plain_text,
+      active: item.properties.activo?.checkbox,
+      discount: item.properties.descuento?.number,
       imageUrl: item.properties.imagen.files[0]?.file.url,
     });
   });
@@ -48,6 +60,7 @@ export default function Home({ items }) {
       }));
       setProducts(consolidatedProductPrice);
       setLoading(false);
+      console.log("PRODUCTS ARRAY", consolidatedProductPrice);
       // setProducts(consolidatedProductPrice_non_filter);
     };
 

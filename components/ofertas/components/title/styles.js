@@ -12,6 +12,7 @@ export const Inner = styled.div`
   padding: 1rem 0;
   color: white;
   text-align: center;
+  margin-top: 4rem;
   @media ${device.mobileL} {
     width: 100%;
     margin: 10% 0;

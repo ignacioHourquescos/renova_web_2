@@ -4,6 +4,7 @@ import styled from "styled-components";
 export const Styled = {
   Inner: styled.div`
     width: 100%;
+    background-color: red;
   `,
   Container: styled.div`
     width: 75%;

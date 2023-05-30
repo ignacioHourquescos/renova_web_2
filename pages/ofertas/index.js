@@ -13,7 +13,7 @@ export default function Home({ items }) {
   const [loading, setLoading] = useState(true);
   // const [brands, setBrands] = useState(null);
   const [filters, setFilters] = useState();
-  const brands = [
+  const categories = [
     "FRAM",
     "MOTUL",
     "ORIGINALES",
@@ -25,8 +25,11 @@ export default function Home({ items }) {
     "LOCX",
     "VARIOS",
     "OFERTAS FILTROS",
+    "ACEITES",
+    "KITS",
   ];
   let notionArray = [];
+
   items.forEach((item) => {
     notionArray.push({
       internalNotionCode: item?.id,
@@ -36,6 +39,7 @@ export default function Home({ items }) {
       active: item.properties.activo?.checkbox,
       discount: item.properties.descuento?.number,
       imageUrl: item.properties.imagen.files[0]?.file.url,
+      category: item.properties.categoria.select?.name,
     });
   });
 
@@ -72,7 +76,7 @@ export default function Home({ items }) {
       {loading ? (
         <Spin />
       ) : (
-        <OfertasDetail brands={brands} products={products} />
+        <OfertasDetail categories={categories} products={products} />
       )}
     </>
   );
@@ -85,8 +89,9 @@ export async function getStaticProps() {
 		database_id: "2bca360b3aae4517abae717845adbc9a",
 		sorts: [{timestamp: "created_time",direction: "ascending",}],
 	});
-
+  console.log("Results de Notion", response.results)
 	return {
+    
 		props: {items: response.results},
 		revalidate: 1,
 	};

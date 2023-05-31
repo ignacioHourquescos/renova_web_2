@@ -5,9 +5,8 @@ import { useEffect, useState } from "react";
 import { get_prices } from "../api/renovapp/prices";
 import { get_products_filters } from "../api/sheets/product_filters";
 import { get_products_non_filters } from "../api/sheets/products_non_filters";
-import { Ofertas as OfertasDetail } from "../../components/ofertas/index";
-import { Spin } from "antd";
-import { Inner, Text } from "./styles";
+import { Ofertas as OfertasDetail } from "../../components/ofertas/index";s
+import Loader from "../../components/UI/Loader";
 
 export default function Home({ items }) {
   const [products, setProducts] = useState();
@@ -78,10 +77,7 @@ export default function Home({ items }) {
   return (
     <>
       {loading ? (
-        <Inner>
-          <Spin size="large" />
-          <Text> Buscando ofertas...</Text>
-        </Inner>
+        <Loader />
       ) : (
         <OfertasDetail categories={categories} products={products} />
       )}

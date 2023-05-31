@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import { get_prices } from "../api/renovapp/prices";
 import { get_products_filters } from "../api/sheets/product_filters";
 import { get_products_non_filters } from "../api/sheets/products_non_filters";
-import { Ofertas as OfertasDetail } from "../../components/ofertas/index";s
+import { Ofertas as OfertasDetail } from "../../components/ofertas/index";
 import Loader from "../../components/UI/Loader";
 
 export default function Home({ items }) {

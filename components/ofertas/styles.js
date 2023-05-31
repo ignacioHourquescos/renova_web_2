@@ -14,7 +14,7 @@ export const Styled = {
     flex-wrap: wrap;
     justify-content: flex-start;
     background-color: none;
-
+    padding-bottom: 10%;
     @media ${device.mobileL} {
       width: 90%;
       margin: 5%;

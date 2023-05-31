@@ -1,62 +1,40 @@
-// import React from "react";
-// import styled from "styled-components";
-// import device from "../../../../utils/utils";
-
-// const Container = ({ children, image, url, ...restProps }) => (
-// 	<Inner {...restProps}>{children}</Inner>
-// );
-
-// export default Container;
-
-// const Inner = styled.div`
-// 	width: 75%;
-// 	margin: 12.5%;
-// 	display: flex;
-// 	flex-direction: row;
-// 	flex-wrap: wrap;
-// 	justify-content: space-between;
-// 	background-color: none;
-// 	@media ${device.mobileL} {
-// 		width: 90%;
-// 		margin: 5%;
-// 	}
-// `;
-
 import styled from "styled-components";
 import device from "../../../../utils/utils";
 
 export const Styled = {
   Inner: styled.div.attrs((props) => ({
     type: "text",
-    image: props.image,
+    imageUrl: props.imageUrl,
   }))`
     border-radius: 5px;
     box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1);
-    width: 46%;
-    height: 40vh;
+    width: 30%;
+    height: 50vh;
     background-size: cover;
     background-repeat: no-repeat;
-    margin: 2%;
+    margin: 1.5%;
     position: relative;
 
-    background-image: url(${(props) => props.image});
-    background-size: cover;
+    background-image: url(${(props) => props.imageUrl});
+
     @media ${device.mobileL} {
       width: 100%;
+      height: 50vh;
       margin: 0%;
       background-size: cover;
       background-position: center;
       margin-bottom: 10%;
     }
   `,
+
   Ribbon: styled.div`
     width: 100%;
     padding: 3%;
     display: flex;
     justify-content: space-between;
-
-    background-color: rgb(0, 0, 0, 0.8);
-    height: 35%;
+    border-top: 10px solid orange;
+    background-color: rgb(0, 0, 0, 0.9);
+    height: 40%;
     position: absolute;
     bottom: 0;
     right: 0;
@@ -64,20 +42,34 @@ export const Styled = {
   `,
   TextContainer: styled.div`
     padding: 0.5rem;
+    width: 70%;
   `,
   Title: styled.div`
     width: 100%;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     color: White;
     top: 3%;
     font-weight: bold;
-    padding-bottom: 1rem;
+    padding-bottom: 0.5rem;
   `,
   Description: styled.div`
     width: 100%;
-    font-size: 1.2rem;
+    font-size: 1rem;
     color: white;
+    font-weight: 200;
+    @media ${device.mobileL} {
+      font-size: 1.2rem;
+    }
+  `,
+  Detail: styled.div`
+    width: 100%;
+    font-size: 0.5rem;
+    color: white;
+    margin-top: 0.5rem;
     font-weight: 100;
+    @media ${device.mobileL} {
+      font-size: 0.5rem;
+    }
   `,
   Validity: styled.div`
     color: black;
@@ -94,16 +86,17 @@ export const Styled = {
     flex-direction: column;
     align-content: flex-end;
     align-items: flex-end;
+    width: 30%;
   `,
   PriceIndicator: styled.div`
-    margin-bottom: 1rem;
-
+    margin-bottom: 0.7rem;
+    font-size: 0.6rem;
     color: white;
   `,
 
   Price: styled.div`
     color: orange;
-    font-size: 2rem;
+    font-size: 1.4rem;
     font-weight: bold;
   `,
 };

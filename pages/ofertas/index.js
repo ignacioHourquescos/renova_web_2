@@ -6,7 +6,8 @@ import { get_prices } from "../api/renovapp/prices";
 import { get_products_filters } from "../api/sheets/product_filters";
 import { get_products_non_filters } from "../api/sheets/products_non_filters";
 import { Ofertas as OfertasDetail } from "../../components/ofertas/index";
-import { Alert, Space, Spin } from "antd";
+import { Spin } from "antd";
+import { Inner, Text } from "./styles";
 
 export default function Home({ items }) {
   const [products, setProducts] = useState();
@@ -14,6 +15,7 @@ export default function Home({ items }) {
   // const [brands, setBrands] = useState(null);
   const [filters, setFilters] = useState();
   const categories = [
+    "DESTACADO",
     "FRAM",
     "MOTUL",
     "ORIGINALES",
@@ -40,6 +42,8 @@ export default function Home({ items }) {
       discount: item.properties.descuento?.number,
       imageUrl: item.properties.imagen.files[0]?.file.url,
       category: item.properties.categoria.select?.name,
+      specialPrice: item.properties.precio?.number,
+      detail: item.properties.detalle?.rich_text[0]?.plain_text,
     });
   });
 
@@ -74,7 +78,10 @@ export default function Home({ items }) {
   return (
     <>
       {loading ? (
-        <Spin />
+        <Inner>
+          <Spin size="large" />
+          <Text> Buscando ofertas...</Text>
+        </Inner>
       ) : (
         <OfertasDetail categories={categories} products={products} />
       )}

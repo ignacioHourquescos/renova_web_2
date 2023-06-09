@@ -10,28 +10,29 @@ import { Styled } from "./styles";
 // category: item.properties.categoria.select?.name,
 
 const PromotionalCard = ({ promotions }) => {
-  return (
-    <>
-      {promotions.active && (
-        <Styled.Inner imageUrl={promotions?.imageUrl}>
-          <Styled.Ribbon>
-            <Styled.TextContainer>
-              <Styled.Title>{promotions.id}</Styled.Title>
-              <Styled.Description>{promotions?.title}</Styled.Description>
-              <Styled.Detail>{promotions?.detail}</Styled.Detail>
-            </Styled.TextContainer>
-            <Styled.IndividualPrice>
-              <Styled.PriceIndicator>Pagas x bidon</Styled.PriceIndicator>
-              <Styled.Price>${promotions?.specialPrice}</Styled.Price>
-            </Styled.IndividualPrice>
-          </Styled.Ribbon>
-          {/* <Styled.Validity>
+	return (
+		<>
+			{promotions.active && (
+				<Styled.Inner>
+					<Styled.Image imageUrl={promotions?.imageUrl}></Styled.Image>
+					<Styled.Ribbon>
+						<Styled.TextContainer>
+							<Styled.Title>{promotions.id}</Styled.Title>
+							<Styled.Description>{promotions?.title}</Styled.Description>
+							<Styled.Detail>{promotions?.detail}</Styled.Detail>
+						</Styled.TextContainer>
+						<Styled.IndividualPrice>
+							<Styled.PriceIndicator>Pagas x bidon</Styled.PriceIndicator>
+							<Styled.Price>${promotions?.specialPrice}</Styled.Price>
+						</Styled.IndividualPrice>
+					</Styled.Ribbon>
+					{/* <Styled.Validity>
             Valido hasta: {promotions?.validity}
           </Styled.Validity> */}
-        </Styled.Inner>
-      )}
-    </>
-  );
+				</Styled.Inner>
+			)}
+		</>
+	);
 };
 
 export default PromotionalCard;

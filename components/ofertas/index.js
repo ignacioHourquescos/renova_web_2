@@ -5,9 +5,9 @@ import Title from "./components/title/Title";
 import PromotionalCard from "./components/promotional-card/PromotionalCard";
 
 export const Ofertas = ({ categories, products }) => {
-	const segment = ["FRAM", "PURFLUX"];
 	return (
 		<Styled.Container>
+			<Title>DESTACADOS</Title>
 			{products
 				.filter((element) => element.category == "DESTACADO")
 				.map((element, idx) => (
@@ -18,7 +18,6 @@ export const Ofertas = ({ categories, products }) => {
 					isBrandPresent(products, categoryElement) && (
 						<>
 							<Title key={idx}>{categoryElement}</Title>
-
 							{products
 								?.filter((element) => element.category == categoryElement)
 								.map((element, idx) => (

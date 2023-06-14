@@ -92,7 +92,14 @@ export async function getStaticProps() {
 	const notion = new Client({auth: "secret_4yG0RqGh5tXyLuKm3gRMhyvRf1ygu6sNRINVQliEofc"});
 	const response = await notion.databases.query({
 		database_id: "2bca360b3aae4517abae717845adbc9a",
-		sorts: [{timestamp: "created_time",direction: "ascending",}],
+		sorts: [{timestamp: "created_time",direction: "ascending"}],
+    filter: {
+      property: "activo",
+      checkbox: {
+        equals: true
+      }
+    }
+  
 	});
   console.log("Results de Notion", response.results)
 	return {

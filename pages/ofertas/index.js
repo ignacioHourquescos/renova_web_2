@@ -30,6 +30,8 @@ export default function Home({ items }) {
 		"OFERTAS FILTROS",
 		"ACEITES",
 		"KITS",
+		"PETRONAS",
+		"SHELL-OMNICRAFT",
 	];
 	let notionArray = [];
 

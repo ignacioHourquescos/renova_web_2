@@ -24,14 +24,14 @@ export default function Home({ items }) {
 		"TOTAL",
 		"PUMA",
 		"VALVOLINE",
+		"PETRONAS",
+		"SHELL-OMNICRAFT",
 		"SHELL",
 		"LOCX",
 		"VARIOS",
 		"OFERTAS FILTROS",
 		"ACEITES",
 		"KITS",
-		"PETRONAS",
-		"SHELL-OMNICRAFT",
 	];
 	let notionArray = [];
 

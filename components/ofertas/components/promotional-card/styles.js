@@ -9,9 +9,7 @@ export const Styled = {
 		border-radius: 5px;
 		box-shadow: 0 0 7px 1px rgba(0, 0, 0, 0.1);
 		width: 30%;
-		height: 50vh;
-		background-size: cover;
-		background-repeat: no-repeat;
+		background-color: white;
 		margin: 1.5%;
 		position: relative;
 		display: flex;
@@ -33,9 +31,10 @@ export const Styled = {
 		imageUrl: props.imageUrl,
 	}))`
 		width: 100%;
-		height: 100%;
-		background-size: cover;
+		height: 250px;
+		background-size: contain;
 		background-repeat: no-repeat;
+		background-position: center;
 
 		background-image: url(${(props) => props.imageUrl});
 	`,
@@ -47,7 +46,7 @@ export const Styled = {
 		justify-content: space-between;
 		border-top: 10px solid orange;
 		background-color: rgb(0, 0, 0, 0.9);
-		height: 40%;
+		height: 150px;
 
 		bottom: 0;
 		right: 0;
@@ -64,6 +63,9 @@ export const Styled = {
 		top: 3%;
 		font-weight: bold;
 		padding-bottom: 0.5rem;
+		@media ${device.mobileS} {
+			font-size: 0.5rem;
+		}
 	`,
 	Description: styled.div`
 		width: 100%;
@@ -71,7 +73,7 @@ export const Styled = {
 		color: white;
 		font-weight: 200;
 		@media ${device.mobileL} {
-			font-size: 1.2rem;
+			font-size: 0.8rem;
 		}
 	`,
 	Detail: styled.div`
@@ -80,18 +82,18 @@ export const Styled = {
 		color: white;
 		margin-top: 0.5rem;
 		font-weight: 100;
-		@media ${device.mobileL} {
+		@media ${device.mobileS} {
 			font-size: 0.5rem;
 		}
 	`,
 	Validity: styled.div`
-    color: black;
-    position: absolute;
-    right: 3%;
-    top:3%;
-    background-color:grey;
-    font-size:0.8:rem;
-`,
+		color: black;
+		position: absolute;
+		right: 3%;
+		top: 3%;
+		background-color: grey;
+		font-size: 0.8rem;
+	`,
 	IndividualPrice: styled.div`
 		border-left: 1px solid white;
 		padding-left: 1rem;
@@ -100,6 +102,7 @@ export const Styled = {
 		align-content: flex-end;
 		align-items: flex-end;
 		width: 30%;
+		margin-top: 1rem;
 	`,
 	PriceIndicator: styled.div`
 		margin-bottom: 0.7rem;

@@ -54,16 +54,12 @@ export default function Home({ items }) {
 
 	useEffect(() => {
 		const fetch_all = async () => {
-			const productPriceArray = await Promise.all([
-				get_products_filters(),
-				get_products_non_filters(),
-				get_prices(),
-			]);
+			const productPriceArray = await Promise.all([get_prices()]);
 
 			const consolidatedProductPrice = notionArray.map((element) => ({
 				...element,
 				price:
-					productPriceArray[2].filter(
+					productPriceArray[0].filter(
 						(element2) => element2.id == element.id
 					)[0]?.pr *
 					1.21 *

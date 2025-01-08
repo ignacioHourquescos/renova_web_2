@@ -1,12 +1,15 @@
 // import Product from "./Sections/Product/Product";
 
 import { Client } from "@notionhq/client";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { get_prices } from "../api/renovapp/prices";
 import { Ofertas as OfertasDetail } from "../../components/ofertas/index";
 import Loader from "../../components/UI/Loader";
+import { useRouter } from "next/router";
 
 export default function Home({ consolidatedProducts }) {
+	const router = useRouter();
+	const [loading, setLoading] = useState(true);
 	const categories = [
 		"FRAM",
 		"MOTUL",
@@ -28,9 +31,36 @@ export default function Home({ consolidatedProducts }) {
 		"KITS",
 	];
 
+	useEffect(() => {
+		// Set loading false when component mounts
+		setLoading(false);
+
+		// Show loader when route starts changing
+		const handleStart = () => setLoading(true);
+		// Hide loader when route completes change
+		const handleComplete = () => setLoading(false);
+
+		router.events.on("routeChangeStart", handleStart);
+		router.events.on("routeChangeComplete", handleComplete);
+		router.events.on("routeChangeError", handleComplete);
+
+		return () => {
+			router.events.off("routeChangeStart", handleStart);
+			router.events.off("routeChangeComplete", handleComplete);
+			router.events.off("routeChangeError", handleComplete);
+		};
+	}, [router]);
+
 	return (
 		<>
-			<OfertasDetail categories={categories} products={consolidatedProducts} />
+			{loading ? (
+				<Loader />
+			) : (
+				<OfertasDetail
+					categories={categories}
+					products={consolidatedProducts}
+				/>
+			)}
 		</>
 	);
 }

@@ -17,7 +17,7 @@ export const Styled = {
 
 		@media ${device.tablet} {
 			width: 31.33%;
-			height: 23vh;
+			height: 25vh;
 			background-size: cover;
 			background-position: center;
 			margin: 1%;
